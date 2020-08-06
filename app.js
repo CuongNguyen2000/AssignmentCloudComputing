@@ -13,9 +13,9 @@ app.engine("hbs", engines.handlebars);
 app.set("views", "./views");
 app.set("view engine", "hbs");
 
-var phoneManager = require("./smartPhone.js");
-app.use("/", phoneManager);
+var toysManager = require("./toys.js");
+app.use("/toysManagement", toysManager);
 
-app.listen(process.env.PORT || 5000, () => {
-  console.log("Server is running in 5000 port");
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Server is running in 3000 port");
 });
