@@ -14,7 +14,7 @@ app.set("views", "./views");
 app.set("view engine", "hbs");
 
 var toysManager = require("./toys.js");
-app.use("/toysManagement", toysManager);
+app.use("/", toysManager);
 
 app.listen(process.env.PORT || 3000, () => {
   console.log("Server is running in 3000 port");

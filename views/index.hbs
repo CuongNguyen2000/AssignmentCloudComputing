@@ -11,13 +11,30 @@
 
 <body>
     <div class="header">
-        <h1>My Website</h1>
-        <p>Resize the browser window to see the effect.</p>
+        <img src="banner.jpg" alt="Banner_image_ToyStore">
     </div>
 
-    <div class="topnav">
-        <a href="">Insert a new Product</a>
-    </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Toy Shop</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/insert">Insert a New Product</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" action="/doSearch" method="GET">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="txtSearch">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+
 
     <div class="row">
         <div class="leftcolumn">
@@ -29,7 +46,7 @@
                             <th>Name</th>
                             <th>Price</th>
                             <th>Producer</th>
-                            <th>Delete data</th>
+                            <th>Delete/Update data</th>
                         </tr>
                     </thead>
                     {{#each model}}
@@ -40,6 +57,7 @@
                         <td>{{producer}}</td>
                         <td>
                             <a href="/remove?id={{_id}}">Delete</a>
+                            <a href="/update?id={{_id}}">Update</a>
                         </td>
                     </tr>
                     {{/each}}
@@ -49,8 +67,14 @@
         <div class="rightcolumn">
             <div class="card">
                 <h2>About Me</h2>
-                <div class="fakeimg" style="height:100px;">Image</div>
-                <p>Some text about me in culpa qui official deserunt mollit anim..</p>
+                <div class="fakeimg">
+                    <img src="avt.jpg" alt="avatar" width="100%">
+                </div>
+                <div class="myName">
+                    <h3 style="font-family: Trebuchet MS">Nguyen Duc Cuong</h3>
+                    <h3 style="font-family: Trebuchet MS">GCH18641</h3>
+                    <h3 style="font-family: Trebuchet MS"><strong>Hotline:</strong>0336424121</h3>
+                </div>
             </div>
             <div class="card">
                 <h3>Follow Me</h3>
@@ -60,7 +84,7 @@
     </div>
 
     <div class="footer">
-        <h2>Footer</h2>
+        <p>&copy; Copyright by Cuong Nguyen</p>
     </div>
 
 
