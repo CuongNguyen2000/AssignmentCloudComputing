@@ -13,7 +13,7 @@ app.engine("hbs", engines.handlebars);
 app.set("views", "./views");
 app.set("view engine", "hbs");
 
-var toysManager = require("./toys.js");
+var toysManager = require("./manageToys.js");
 app.use("/", toysManager);
 
 app.listen(process.env.PORT || 3000, () => {
