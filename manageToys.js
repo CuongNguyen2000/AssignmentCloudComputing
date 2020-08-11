@@ -37,9 +37,10 @@ router.get("/doSearch", async (req, res) => {
   var name_search = req.query.txtSearch;
   let client = await MongoClient.connect(url);
   let dbo = client.db("ToysDB");
+  //let search = /name_search$/;
   let result = await dbo
     .collection("Product")
-    .find({ name: name_search })
+    .find({ name: new RegExp("^" + name_search, "i") })
     .toArray();
   res.render("index", { model: result });
 });
