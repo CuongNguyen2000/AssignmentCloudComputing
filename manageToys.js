@@ -40,7 +40,12 @@ router.get("/doSearch", async (req, res) => {
   //let search = /name_search$/;
   let result = await dbo
     .collection("Product")
-    .find({ name: new RegExp(name_search, "i") })
+    .find({
+      $or: [
+        { name: new RegExp(name_search, "i") },
+        { producer: new RegExp(name_search, "i") },
+      ],
+    })
     .toArray();
   res.render("index", { model: result });
 });
