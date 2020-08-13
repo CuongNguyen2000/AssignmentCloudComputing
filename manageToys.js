@@ -29,8 +29,14 @@ router.post("/doInsert", async (req, res) => {
   };
   let client = await MongoClient.connect(url);
   let dbo = client.db("ToysDB");
-  await dbo.collection("Product").insertOne(newProduct);
-  res.redirect("/");
+
+  if (isNaN(inputPrice)) {
+    let errorModel = { errorMsg: "The price must be a number !!!" };
+    res.render("insertToys", { model: errorModel });
+  } else {
+    await dbo.collection("Product").insertOne(newProduct);
+    res.redirect("/");
+  }
 });
 
 router.get("/doSearch", async (req, res) => {
